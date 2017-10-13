@@ -6,14 +6,14 @@ export class Buyer {
 	firstName: string;
 	lastName: string;
 	email: string;
-	products: Array<Product>;
+	products: Product[];
 
-	constructor(buyerId:number, buyerFirstName:string, buyerLastName:string, buyerEmail:string, buyerProducts:Array<Product>) {
-		this.id = buyerId;
-		this.firstName = buyerFirstName;
-		this.lastName = buyerLastName;
-		this.email = buyerEmail;
-		this.products = buyerProducts;
+	constructor(id?:number, firstName?:string, lastName?:string, email?:string, products?:Product[]) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.products = products;
 	}
 
 }

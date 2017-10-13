@@ -1,9 +1,27 @@
 <div class="container">
+	<h1>Add new buyer</h1>
+	<form>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" [(ngModel)]="newBuyer.firstName" class="form-control" id="name" name="firstName" placeholder="Name">
+		</div>
+		<div class="form-group">
+			<label for="lastName">Last name</label>
+			<input type="text" [(ngModel)]="newBuyer.lastName" class="form-control" id="lastName" name="lastName" placeholder="Last name">
+		</div>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Email address</label>
+			<input type="email" [(ngModel)]="newBuyer.email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Email address">
+		</div>
+		<button type="submit" class="btn btn-primary" (click)="createNewBuyer(newBuyer)">Create new buyer</button>
+	</form>
+	<hr>
+	<h1>All buyers:</h1>
 	<ul>
 		<li *ngFor="let buyer of buyers; let index = index">
 			Buyer: {{ buyer.firstName }} {{ buyer.lastName }}<br>
 			buyer's email: {{ buyer.email }}<br>
-			buyer's product list: <span *ngFor="let product of buyer.products">{{ product.name }}</span><br>
+			buyer's product list: <span *ngFor="let product of buyer.products"><ul><li>{{ product.name? product.name: "empty" }}</li></ul></span><br>
 			<button type="submit" name="submit" class="btn btn-danger" (click)="removeBuyer(index)">Remove buyer</button>
 			<hr>
 		</li>

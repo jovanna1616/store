@@ -4,9 +4,9 @@ export class Product {
 	name: string;
 	quantity: number;
 
-	constructor(productId:number, productName:string, productQuantity:number) {
-		this.id = productId;
-		this.name = productName;
-		this.quantity = productQuantity;
+	constructor(id?: number, name?: string, quantity?: number) {
+		this.id = id;
+		this.name = name;
+		this.quantity = quantity;
 	}
 }
