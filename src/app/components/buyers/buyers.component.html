@@ -1,3 +1,11 @@
-<p>
-  buyers works!
-</p>
+<div class="container">
+	<ul>
+		<li *ngFor="let buyer of buyers; let index = index">
+			Buyer: {{ buyer.firstName }} {{ buyer.lastName }}<br>
+			buyer's email: {{ buyer.email }}<br>
+			buyer's product list: <span *ngFor="let product of buyer.products">{{ product.name }}</span><br>
+			<button type="submit" name="submit" class="btn btn-danger" (click)="removeBuyer(index)">Remove buyer</button>
+			<hr>
+		</li>
+	</ul>
+</div>
