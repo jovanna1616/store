@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
 import { Buyer } from '../buyer';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class BuyersService {
-
-
+	buyer = new BehaviorSubject([]);
 	private buyers: Buyer[] = [
 
 		new Buyer(
@@ -42,7 +43,13 @@ export class BuyersService {
 		return this.buyers;
 	}
 
-	
+	search(buyer){
+		this.buyer.next(buyer);
+	}
+	getSearchedBuyer() {
+		return this.buyer;
+	}
+
 	private products = [
 
 		new Product(1, 'milk', 30),
@@ -53,10 +60,7 @@ export class BuyersService {
 	getProducts(): Array<Object> {
 		return this.products;
 	}
-
 	
-
-
   constructor() { }
-
+  
 }

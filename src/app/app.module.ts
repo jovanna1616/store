@@ -9,20 +9,26 @@ import { BuyersComponent } from './components/buyers/buyers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { BuyersService } from './service/buyers.service';
+import { BuyerProfileComponent } from './components/buyer-profile/buyer-profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BuyersComponent,
-	ProductsComponent,
+	  ProductsComponent,
     LayoutComponent,
+    BuyerProfileComponent,
   ],
   imports: [
     BrowserModule,
-	AppRoutingModule,
-  FormsModule,
+	  AppRoutingModule,
+    FormsModule,
   ],
   providers: [BuyersService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+  RouterModule,
+  LayoutComponent,
+  ]
 })
 export class AppModule { }

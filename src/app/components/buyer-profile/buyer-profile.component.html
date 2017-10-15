@@ -1,0 +1,14 @@
+<ul>
+	<li>
+		<strong>Buyer:</strong> {{ buyer.firstName }} {{ buyer.lastName }}<br>
+		<strong>buyer's email:</strong> {{ buyer.email }}<br>
+		<strong>buyer's product list:</strong>
+			<span *ngFor="let product of buyer.products">
+				<ul>
+					<li>{{ product.name? product.name: "empty" }}</li>
+				</ul>
+			</span><br>
+		<a routerLink="/buyers" routerLinkActive="active" title="buyers list">back to list</a>
+		<hr>
+	</li>
+</ul>

@@ -13,16 +13,27 @@
 			<label for="exampleInputEmail1">Email address</label>
 			<input type="email" [(ngModel)]="newBuyer.email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" placeholder="Email address">
 		</div>
-		<button type="submit" class="btn btn-primary" (click)="createNewBuyer(newBuyer)">Create new buyer</button>
+		<button type="submit" class="btn btn-primary" (click)="addNewBuyer(newBuyer)">Create new buyer</button>
 	</form>
 	<hr>
 	<h1>All buyers:</h1>
 	<ul>
 		<li *ngFor="let buyer of buyers; let index = index">
-			Buyer: {{ buyer.firstName }} {{ buyer.lastName }}<br>
-			buyer's email: {{ buyer.email }}<br>
-			buyer's product list: <span *ngFor="let product of buyer.products"><ul><li>{{ product.name? product.name: "empty" }}</li></ul></span><br>
-			<button type="submit" name="submit" class="btn btn-danger" (click)="removeBuyer(index)">Remove buyer</button>
+			<strong>Buyer:</strong> {{ buyer.firstName }} {{ buyer.lastName }}<br>
+			<strong>buyer's email:</strong> {{ buyer.email }}<br>
+			<strong>buyer's product list:</strong> 
+				<span *ngIf="!buyer.products">{{ 'empty' }}</span> 
+				<span>
+					<ul>
+						<li *ngFor="let product of buyer.products">{{ product.name? product.name : "empty" }}</li>
+					</ul>
+				</span><br>
+			<a routerLink="/buyers/{{buyer.id}}" routerLinkActive="active" title="purchases" (click)="handleSearch()">
+				Check latest purchases
+			</a>
+			<button type="submit" name="submit" class="btn btn-danger" (click)="removeBuyer(index)">
+				Remove buyer
+			</button>
 			<hr>
 		</li>
 	</ul>
