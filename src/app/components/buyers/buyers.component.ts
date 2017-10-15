@@ -17,7 +17,7 @@ export class BuyersComponent implements OnInit {
   constructor(private buyersService:BuyersService) {
 	  this.buyers = buyersService.getBuyers();
   }
-
+  // method for emitting buyer
   handleSearch() {
     this.search.emit(this.buyer);
   }
@@ -29,6 +29,7 @@ export class BuyersComponent implements OnInit {
   addNewBuyer(newBuyer) {
     this.buyers.push(newBuyer);
   }
+  // need to subscribe on emited buyer 
   ngOnInit() {
     this.buyersService.getSearchedBuyer().subscribe
       (
