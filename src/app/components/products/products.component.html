@@ -1,3 +1,12 @@
-<div class="container">
-	<p>products</p>
-</div>
+<form class="form-inline my-2 my-lg-0">
+	<input [(ngModel)]="searchingTerm" name="searchingTerm" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="handleSearch()">Search</button>
+</form>
+<ul>
+	<li *ngFor="let product of products | search:searchingTerm">
+		<span>product's ID: <strong>{{ product.id }}</strong></span><br>
+		<span>product's name: <strong>{{ product.name }}</strong></span><br>
+		<span>product's quantity: <strong>{{ product.quantity }}</strong></span><br>
+		<hr>
+	</li>
+</ul>

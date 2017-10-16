@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../product';
+import { ProductsService } from './products.service';
 import { Buyer } from '../buyer';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs';
@@ -17,6 +18,8 @@ export class BuyersService {
 		          [
 		          new Product(1, 'milk', 10),
 		          new Product(2, 'bread', 5),
+		          new Product(4, 'juice', 5),
+		          new Product(5, 'coca cola', 5),
 		          ]),
 		new Buyer(
 		          2, 
@@ -26,6 +29,7 @@ export class BuyersService {
 		          [
 		          new Product(2, 'bread', 5),
 		          new Product(3, 'mineral water', 10),
+		          new Product(5, 'coca cola', 5),
 		          ]),
         new Buyer(
 		          3, 
@@ -36,6 +40,7 @@ export class BuyersService {
 		          new Product(1, 'milk', 5),
 		          new Product(2, 'bread', 5),
 		          new Product(3, 'mineral water', 10),
+		          new Product(4, 'juice', 5),
 		          ]),	
 	];
 
@@ -51,10 +56,11 @@ export class BuyersService {
 	}
 
 	private products = [
-
 		new Product(1, 'milk', 30),
 		new Product(2, 'bread', 20),
 		new Product(3, 'mineral water', 30),
+		new Product(4, 'juice', 50),
+		new Product(5, 'coca cola', 30),
 	];
 
 	getProducts(): Array<Object> {

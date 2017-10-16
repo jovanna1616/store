@@ -9,7 +9,10 @@ import { BuyersComponent } from './components/buyers/buyers.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { BuyersService } from './service/buyers.service';
+import { ProductsService } from './service/products.service';
 import { BuyerProfileComponent } from './components/buyer-profile/buyer-profile.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { BuyerProfileComponent } from './components/buyer-profile/buyer-profile.
 	  ProductsComponent,
     LayoutComponent,
     BuyerProfileComponent,
+    ProductDetailComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
 	  AppRoutingModule,
     FormsModule,
   ],
-  providers: [BuyersService],
+  providers: [BuyersService, ProductsService],
   bootstrap: [AppComponent],
   exports: [
   RouterModule,

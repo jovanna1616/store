@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BuyersService } from '../../service/buyers.service';
+import { ProductsService } from '../../service/products.service';
 
 @Component({
   selector: 'app-layout',
@@ -8,12 +9,17 @@ import { BuyersService } from '../../service/buyers.service';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(private buyersService:BuyersService) {
+  constructor(private buyersService:BuyersService, private productsService:ProductsService) {
     this.buyersService = buyersService;
+    this.productsService = productsService;
   }
 
-  handleSearch(buyer){
+  handleSearchBuyer(buyer){
    this.buyersService.search(buyer);
+  }
+
+  handleSearchProduct(product){
+   this.productsService.searchingTerm(product);
   }
 
   ngOnInit() { }
